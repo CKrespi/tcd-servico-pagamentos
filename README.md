@@ -19,13 +19,22 @@ A classe `ServicoDePagamento` gerencia pagamentos com os seguintes recursos:
 ### Instalação de dependências
 
 ```bash
-npm install
+npm init -y
+npm i mocha
 ```
+
+Este comando instalará o Mocha e outras dependências necessárias para executar os testes.
 
 ### Executar os testes
 
+Com npm:
 ```bash
 npm test
+```
+
+Ou diretamente com Mocha:
+```bash
+npx mocha test/**/*.test.js
 ```
 
 ### Exemplo de Uso
