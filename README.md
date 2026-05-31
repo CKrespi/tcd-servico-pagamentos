@@ -71,10 +71,9 @@ tcd-servico-pagamentos/
 
 - ✅ Validação de adição de pagamento na lista
 - ✅ Categorização como "cara" para valores > 100.00
-- ✅ Categorização como "padrão" para valores ≤ 100.00
+- ✅ Categorização como "padrão" para valores < 100.00
 - ✅ Categorização limite (exatamente 100.00)
 - ✅ Retorno apenas do último pagamento
-- ✅ Validação do limite de 100.01 (primeira categoria "cara")
 
 ## 📦 Tecnologias
 
