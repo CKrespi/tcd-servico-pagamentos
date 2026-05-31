@@ -1,0 +1,17 @@
+{
+  "name": "tcd-servico-pagamentos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "mocha": "^11.7.6"
+  },
+  "devDependencies": {},
+  "description": ""
+}
