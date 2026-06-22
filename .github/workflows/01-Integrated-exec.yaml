@@ -1,0 +1,51 @@
+# Pipeline de Integração Contínua - Serviço de Pagamentos
+# GitHub Actions - Testes Automatizados
+
+name: CI - Testes Automatizados
+
+on:
+  # Execução por push na branch main
+  push:
+    branches:
+      - main
+  
+  # Execução manual
+  workflow_dispatch:
+  
+  # Execução agendada (3 vezes por semana)
+  schedule:
+    - cron: '0 9 * * 1,3,5'  # Segunda, quarta e sexta às 09:00
+
+jobs:
+  testes-unitarios:
+    name: Testes Unitários
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clone do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # Instalação do Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # Instalação das dependências
+      - name: Instalando dependências
+        run: npm install
+
+      # Execução dos testes com geração de relatório
+      - name: Executando testes unitários
+        run: npm run test:report
+
+      # Armazenamento do relatório como artifact
+      - name: Publicando relatório de testes
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: Relatório de Testes
+          path: test-results.json
+          retention-days: 30
